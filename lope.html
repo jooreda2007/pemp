@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع حسب العمر</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>مرحبًا بك في موقعنا</h1>
+        <label for="age">أدخل عمرك:</label>
+        <input type="number" id="age" name="age" min="1" max="100">
+        <button onclick="showContent()">عرض المحتوى</button>
+        <div id="content"></div>
+    </div>
+
+    <script>
+        function showContent() {
+            const age = document.getElementById('age').value;
+            const contentDiv = document.getElementById('content');
+            let content = '';
+
+            if (age < 18) {
+                content = '<p>أنت تحت السن القانوني. هنا بعض المحتويات المناسبة للأطفال.</p>';
+            } else if (age >= 18 && age < 60) {
+                content = '<p>أنت بالغ. هنا بعض المحتويات المناسبة للبالغين.</p>';
+            } else {
+                content = '<p>أنت من كبار السن. هنا بعض المحتويات المناسبة لكبار السن.</p>';
+            }
+
+            contentDiv.innerHTML = content;
+        }
+    </script>
+</body>
+</html>
